@@ -10,7 +10,8 @@ const charaData = [
     text:"帝翔学院高校野球部のエース。",
     text1:"周りが化け物揃いの中、突出した才能は",
     text2:"ないがこつこつと積み重ねられる努力家。",
-    text3:"エースなのに一番不憫で、後輩の鈴木凛にはよくパシられている。チーム内人気は4位で、いいとも悪いとも言えない微妙なライン。",
+    text3:"エースなのに一番不憫で、後輩の鈴木凛にはよくパシられている。",
+    text4:"チーム内人気は4位。",
     grade: "3年",
     className: "C組",
     color: "#e74fff",
@@ -236,6 +237,7 @@ function openCharaByIndex(index) {
     document.getElementById("modal-text1").textContent = c.text1;
     document.getElementById("modal-text2").textContent = c.text2;
     document.getElementById("modal-text3").textContent = c.text3;
+    document.getElementById("modal-text3").textContent = c.text4;
     document.getElementById("modal-grade").textContent = "学年：" + c.grade;
     document.getElementById("modal-class").textContent = "クラス：" + c.className;
     document.getElementById("chara-modal")
