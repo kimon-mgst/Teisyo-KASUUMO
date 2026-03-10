@@ -235,6 +235,7 @@ function openCharaByIndex(index) {
     document.getElementById("modal-text").textContent = c.text;
     document.getElementById("modal-text1").textContent = c.text1;
     document.getElementById("modal-text2").textContent = c.text2;
+    document.getElementById("modal-text3").textContent = c.text3;
     document.getElementById("modal-grade").textContent = "学年：" + c.grade;
     document.getElementById("modal-class").textContent = "クラス：" + c.className;
     document.getElementById("chara-modal")
