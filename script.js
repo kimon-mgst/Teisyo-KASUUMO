@@ -33,7 +33,7 @@ const charaData = [
     grade: "3年",
     className: "A組",
     color: "#4fa3ff",
-    icon: "images/syu.png",
+    icon: "images/azuma-icon.png",
     images: {
       uniform: "images/syu_seihuku.PNG",
       casual: "images/azumasyu.png"
@@ -51,7 +51,7 @@ const charaData = [
     grade: "3年",
     className: "B組",
     color: "#4fff83",
-    icon: "images/koiti.png",
+    icon: "images/kou-icon.png",
     images: {
       uniform: "images/kou_seihuku.PNG",
       casual: "images/motanikoiti.png"
