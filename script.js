@@ -29,8 +29,7 @@ const charaData = [
     text2:"亜門とは幼少からの付き合いで息の合ったコンビ。",
     text3:"彼女との待ち合わせにはスタバ両手が標準装備。",
     text4:"チーム内人気は堂々の1位。",
-    grade: "3年",
-    className: "A組",
+    grade: "3年",className: "A組",
     color: "#4fa3ff",
     icon: "images/azuma-icon.png",
     images: {
@@ -47,8 +46,7 @@ const charaData = [
     text2:"暴走しがちな後輩達を落ち着かせるのはいつも恒一の役目。",
     text3:"亜門と同じく不憫ポジであり、",
     text4:"同じように凛にパシられている。",
-    grade: "3年",
-    className: "B組",
+    grade: "3年", className: "B組",
     color: "#4fff83",
     icon: "images/kou-icon.png",
     images: {
@@ -65,8 +63,7 @@ const charaData = [
     text2:"猫を可愛がる心を持っている。",
     text3:"怖くない、怖くないんです。",
     text4:"ただ見た目がちょっとあれなだけで。",
-    grade: "3年",
-    className: "A組",
+    grade: "3年", className: "A組",
     color: "#5c398a",
     icon: "images/mondo.png",
     images: {
@@ -83,8 +80,7 @@ const charaData = [
     text2:"柊と同じくチームの支柱。",
     text3:"感情の起伏があまりなく、常に",
     text4:"冷静でチームをよく見ている。",
-    grade: "3年",
-    className: "C組",
+    grade: "3年", className: "C組",
     color: "#5574bd",
     icon: "images/hiyori.png",
     images: {
