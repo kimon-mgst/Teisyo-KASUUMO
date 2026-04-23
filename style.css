@@ -180,14 +180,7 @@ nav {
   font-weight: bold;
 }
 
-#modal-text5 {
-  margin-top: 8px;
-  font-size: 10px;
-  color: var(--text-sub);
-  opacity: 0.5;
-  text-align: right;
-  letter-spacing: 0.05em;
-}
+
 /* =========================
    MODAL
 ========================= */
@@ -265,6 +258,13 @@ nav {
   word-break: break-word;
 }
 
+#modal-text5 {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--text-sub);
+  opacity: 0.6;
+  text-align: right; /* ←これで右下に寄る（それっぽい） */
+}
 /* =========================
    COSTUME BUTTON
 ========================= */
