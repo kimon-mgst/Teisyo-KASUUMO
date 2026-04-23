@@ -80,6 +80,7 @@ const charaData = [
     text2:"柊と同じくチームの支柱。",
     text3:"感情の起伏があまりなく、常に",
     text4:"冷静でチームをよく見ている。",
+    text5:"Illust by ひえのひ",
     grade: "3年", className: "C組",
     color: "#5574bd",
     icon: "images/hiyo_icon.PNG",
@@ -251,6 +252,7 @@ function openCharaByIndex(index) {
     document.getElementById("modal-text2").textContent = c.text2;
     document.getElementById("modal-text3").textContent = c.text3;
     document.getElementById("modal-text4").textContent = c.text4;
+    document.getElementById("modal-text5").textContent = c.text5;
     document.getElementById("modal-grade").textContent = "学年：" + c.grade + c.className;
     document.getElementById("chara-modal")
       .style.setProperty("--chara-accent", c.color);
