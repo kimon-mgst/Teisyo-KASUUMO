@@ -180,6 +180,14 @@ nav {
   font-weight: bold;
 }
 
+#modal-text5 {
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--text-sub);
+  opacity: 0.5;
+  text-align: right;
+  letter-spacing: 0.05em;
+}
 /* =========================
    MODAL
 ========================= */
