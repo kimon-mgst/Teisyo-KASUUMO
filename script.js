@@ -82,10 +82,10 @@ const charaData = [
     text4:"冷静でチームをよく見ている。",
     grade: "3年", className: "C組",
     color: "#5574bd",
-    icon: "images/hiyori.png",
+    icon: "images/hiyo_icon.PNG",
     images: {
-      uniform: "images/yuki_uniform.png",
-      casual: "images/yuki_casual.png"
+      uniform: "images/hiyo_seihuku.PNG",
+      casual: "images/yukihiyori.PNG"
     }
   },
   {
