@@ -134,13 +134,14 @@ const charaData = [
     text2:"主人公より主人公している。",
     text3:"才能に胡坐をかくことなく、",
     text4:"努力を続けられるいい子。",
+    text5:"イラスト ぎが",
     grade: "1年",
     className: "C組",
     color: "#5a78bf",
-    icon: "images/uriu.png",
+    icon: "images/turuna_icon.PNG",
     images: {
-      uniform: "images/uriu_uniform.png",
-      casual: "images/uriu_casual.png"
+      uniform: "images/uryu_seifuku.PNG",
+      casual: "images/uryuturuna.PNG"
     }
   },
   {
