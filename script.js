@@ -134,7 +134,7 @@ const charaData = [
     text2:"主人公より主人公している。",
     text3:"才能に胡坐をかくことなく、",
     text4:"努力を続けられるいい子。",
-    text5:"イラスト ぎが",
+    text5:"Illust by ぎが",
     grade: "1年",
     className: "C組",
     color: "#5a78bf",
