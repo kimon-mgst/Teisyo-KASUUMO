@@ -171,13 +171,14 @@ const charaData = [
     text2:"オブラートに包めるため周囲と",
     text3:"ぶつかりにくい。",
     text4:"凛に唯一対抗出来る存在。",
+    text5:"Illust by ひえのひ",
     grade: "1年",
     className: "C組",
     color: "#6c4c76",
-    icon: "images/naoha.png",
+    icon: "images/naoha_icon.PNG",
     images: {
-      uniform: "images/naoha_uniform.png",
-      casual: "images/naoha_casual.png"
+      uniform: "images/naoha_seifuku.PNG",
+      casual: "images/motaninaoha.PNG"
     }
   }
 ];
