@@ -121,7 +121,7 @@ const charaData = [
     color: "#b1eeff",
     icon: "images/mio_icon.PNG",
     images: {
-      uniform: "images/mio_seifuku.PNG",
+      uniform: "images/mio_seihuku.PNG",
       casual: "images/motidukimio.PNG"
     }
   },
