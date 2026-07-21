@@ -119,7 +119,7 @@ const charaData = [
     grade: "2年",
     className: "F組",
     color: "#b1eeff",
-    icon: "images/mio.png",
+    icon: "images/mio_icon.PNG",
     images: {
       uniform: "images/mio_seifuku.PNG",
       casual: "images/motidukimio.PNG"
