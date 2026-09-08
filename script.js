@@ -543,13 +543,29 @@ function changeCostume(type) {
   // 現在の画像を完全に消す
   img.classList.remove("show");
 
-  // すぐに新しい画像へ変更
+  // 表示を完全に消してから画像を変更
+  img.style.visibility = "hidden";
+
+  // 新しい画像を設定
   img.src = currentImages[type];
 
-  // 新しい画像の読み込み完了後に表示
-  img.onload = () => {
-    img.classList.add("show");
-  };
+  // 画像の読み込みが完了したら表示
+  if (img.complete) {
+    img.style.visibility = "visible";
+
+    // 次の描画タイミングでフェードイン
+    requestAnimationFrame(() => {
+      img.classList.add("show");
+    });
+  } else {
+    img.onload = () => {
+      img.style.visibility = "visible";
+
+      requestAnimationFrame(() => {
+        img.classList.add("show");
+      });
+    };
+  }
 }
 /* =========================
 
