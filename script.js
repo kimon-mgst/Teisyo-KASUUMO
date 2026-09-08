@@ -515,4 +515,96 @@ document
       createDescriptionHTML(c);
 
     document
-      
+      .getElementById("chara-modal")
+      .style.setProperty(
+        "--chara-accent",
+        c.color
+      );
+
+    img.classList.add("show");
+
+  }, 150);
+
+  document
+    .getElementById("chara-modal")
+    .classList.add("active");
+
+}
+
+/* =========================
+   COSTUME
+========================= */
+
+function changeCostume(type) {
+
+  if (!currentImages[type])
+    return;
+
+  const img =
+    document.getElementById("modal-img");
+
+  img.classList.remove("show");
+
+  setTimeout(() => {
+
+    img.src =
+      currentImages[type];
+
+    img.classList.add("show");
+
+  }, 150);
+
+}
+
+/* =========================
+
+   SWITCH
+========================= */
+
+function prevChara() {
+
+  openCharaByIndex(
+    (
+      currentIndex - 1 +
+      currentList.length
+    ) %
+    currentList.length
+  );
+
+}
+
+function nextChara() {
+
+  openCharaByIndex(
+    (
+      currentIndex + 1
+    ) %
+    currentList.length
+  );
+
+}
+
+/* =========================
+   CLOSE
+========================= */
+
+function closeChara() {
+
+  document
+    .getElementById("chara-modal")
+    .classList.remove("active");
+
+}
+
+/* =========================
+   INIT
+========================= */
+
+window.addEventListener(
+  "load",
+  () => {
+
+    renderCharacterList(charaData);
+
+  }
+);
