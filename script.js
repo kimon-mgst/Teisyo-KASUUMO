@@ -95,7 +95,7 @@ const charaData = [
 
   color: "#4fff83",
 
-  icon: "images/kou_icon.png",
+  icon: "images/koiti.png",
 
   images: {
     uniform: "images/kou_seihuku.PNG",
