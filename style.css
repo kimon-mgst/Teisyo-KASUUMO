@@ -282,6 +282,7 @@ MODAL
   width:auto;
   max-width:100%;
   opacity:0;
+  visibility:hidden;
   transition:opacity .15s;
 }
 
