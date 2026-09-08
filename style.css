@@ -452,6 +452,7 @@ FOOTER
   border-top:1px solid #ddd;
 }
 
+
 /* =========================
 SMARTPHONE
 ========================= */
@@ -486,18 +487,137 @@ SMARTPHONE
     height:120px;
   }
 
+
+
+}
+
+
+/* ========================================
+   CHARACTER MODAL - SMARTPHONE
+   ※キャラクターモーダルだけに適用
+======================================== */
+
+@media(max-width:768px){
+
+  /* モーダル本体 */
   .modal-content{
-    padding:20px;
+    width:94%;
+    max-width:500px;
+    max-height:92vh;
+
+    padding:20px 38px 24px;
+
+    border-radius:14px;
+  }
+
+  /* キャラクターイラスト */
+  .modal-img{
+    display:block;
+
+    width:auto;
+    max-width:100%;
+    max-height:42vh;
+
+    margin:0 auto;
+  }
+
+  /* =========================
+     キャラクター切り替え矢印
+     モーダルの垂直中央・左右端
+  ========================= */
+
+  .modal-arrow{
+    position:absolute;
+
+    top:50%;
+    transform:translateY(-50%);
+
+    width:42px;
+    height:42px;
+
+    margin:0;
+
+    z-index:10;
+
+    font-size:16px;
+  }
+
+  .modal-prev{
+    left:6px;
+  }
+
+  .modal-next{
+    right:6px;
+  }
+
+  /* =========================
+     制服・私服ボタン
+  ========================= */
+
+  .costume-buttons{
+    margin-top:12px;
+    margin-bottom:20px;
+  }
+
+  .costume-buttons button{
+    padding:7px 18px;
+    margin:0 4px;
+
+    font-size:13px;
+  }
+
+  /* =========================
+     キャラクター名
+  ========================= */
+
+  #modal-name{
+    font-size:22px;
+    margin-top:5px;
+  }
+
+  /* 学年・クラス */
+  #modal-grade{
+    margin:6px 0 15px;
+    font-size:14px;
+  }
+
+  /* =========================
+     プロフィール
+  ========================= */
+
+  #modal-profile{
+    max-width:100%;
+    margin-bottom:18px;
+
+    font-size:13px;
   }
 
   .profile-row{
-    flex-direction:column;
-    gap:4px;
+    padding:7px 0;
   }
 
-  .modal-arrow{
-    position:static;
-    transform:none;
-    margin:10px 5px 0;
+  /* =========================
+     キャラクター説明
+  ========================= */
+
+  #modal-description{
+    font-size:14px;
+    line-height:1.8;
   }
+
+  #modal-description p{
+    margin-bottom:6px;
+  }
+
+  /* 閉じるボタン */
+  .close{
+    top:8px;
+    right:12px;
+
+    font-size:24px;
+  }
+
 }
+
+}
+
