@@ -536,26 +536,21 @@ document
 ========================= */
 
 function changeCostume(type) {
+  if (!currentImages[type]) return;
 
-  if (!currentImages[type])
-    return;
+  const img = document.getElementById("modal-img");
 
-  const img =
-    document.getElementById("modal-img");
-
+  // 現在の画像を完全に消す
   img.classList.remove("show");
 
-  setTimeout(() => {
+  // すぐに新しい画像へ変更
+  img.src = currentImages[type];
 
-    img.src =
-      currentImages[type];
-
+  // 新しい画像の読み込み完了後に表示
+  img.onload = () => {
     img.classList.add("show");
-
-  }, 150);
-
+  };
 }
-
 /* =========================
 
    SWITCH
