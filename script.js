@@ -208,10 +208,10 @@ profile: {
 },
 
 color: "#b1eeff",
-icon: "images/mio_icon.png",
+icon: "images/mio_icon.PNG",
 images: {
-    uniform: "images/mio_seihuku.png",
-	casual: "images/seisakutyu.png"
+    uniform: "images/mio_seihuku.PNG",
+	casual: "images/seisakutyu.PNG"
 	}
 },
 
