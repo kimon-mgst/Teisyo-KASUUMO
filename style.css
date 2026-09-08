@@ -278,11 +278,11 @@ MODAL
 }
 
 .modal-img{
+  display:block;
+  width:auto;
   max-width:100%;
-  max-height:60vh;
-
   opacity:0;
-  transition:.3s;
+  transition:opacity .15s;
 }
 
 .modal-img.show{
