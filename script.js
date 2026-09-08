@@ -360,7 +360,7 @@ function sortChara(type) {
 
   let sorted = [...charaData];
 
-  if (type === "profile.grade") {
+  if (type === "grade") {
 
     sorted.sort(
       (a, b) =>
