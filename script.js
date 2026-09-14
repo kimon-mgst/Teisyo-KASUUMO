@@ -476,59 +476,59 @@ function createDescriptionHTML(c) {
 ========================= */
 
 function openCharaByIndex(index) {
-
   const c = currentList[index];
 
   currentIndex = index;
+  currentImages = c.images;
 
-  currentImages =
-    c.images;
+  const img = document.getElementById("modal-img");
 
-  const img =
-    document.getElementById("modal-img");
-
+  // 古い画像を完全に消す
   img.classList.remove("show");
+  img.style.visibility = "hidden";
 
-  setTimeout(() => {
+  // 制服画像をセット
+  img.src = c.images.uniform;
 
-    img.src =
-      c.images.uniform;
+  // キャラクター情報を表示
+  document.getElementById("modal-name").textContent = c.name;
 
-    document
-      .getElementById("modal-name")
-      .textContent =
-      c.name;
+  document.getElementById("modal-grade").textContent =
+    `${c.profile.grade} ${c.profile.className}`;
 
-document
-  .getElementById("modal-grade")
-  .textContent =
-  `${c.profile.grade} ${c.profile.className}`;
+  document.getElementById("modal-profile").innerHTML =
+    createProfileHTML(c);
 
-    document
-      .getElementById("modal-profile")
-      .innerHTML =
-      createProfileHTML(c);
+  document.getElementById("modal-description").innerHTML =
+    createDescriptionHTML(c);
 
-    document
-      .getElementById("modal-description")
-      .innerHTML =
-      createDescriptionHTML(c);
+  document
+    .getElementById("chara-modal")
+    .style.setProperty(
+      "--chara-accent",
+      c.color
+    );
 
-    document
-      .getElementById("chara-modal")
-      .style.setProperty(
-        "--chara-accent",
-        c.color
-      );
-
-    img.classList.add("show");
-
-  }, 150);
-
+  // モーダルを開く
   document
     .getElementById("chara-modal")
     .classList.add("active");
 
+  // 制服画像が読み込まれたら表示
+  const showImage = () => {
+    img.style.visibility = "visible";
+
+    requestAnimationFrame(() => {
+      img.classList.add("show");
+    });
+  };
+
+  // 画像の読み込みを明示的に待つ
+  if (img.complete && img.naturalWidth > 0) {
+    showImage();
+  } else {
+    img.onload = showImage;
+  }
 }
 
 /* =========================
