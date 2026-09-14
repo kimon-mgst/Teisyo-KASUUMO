@@ -514,23 +514,25 @@ function openCharaByIndex(index) {
     .getElementById("chara-modal")
     .classList.add("active");
 
-  // 制服画像が読み込まれたら表示
-  const showImage = () => {
+
+  // 画像の読み込みを明示的に待つ
+  if (img.complete && img.naturalWidth > 0) {
+  img.style.visibility = "visible";
+
+  requestAnimationFrame(() => {
+    img.classList.add("show");
+  });
+} else {
+  img.onload = () => {
     img.style.visibility = "visible";
 
     requestAnimationFrame(() => {
       img.classList.add("show");
     });
   };
-
-  // 画像の読み込みを明示的に待つ
-  if (img.complete && img.naturalWidth > 0) {
-    showImage();
-  } else {
-    img.onload = showImage;
-  }
 }
 
+}
 /* =========================
    COSTUME
 ========================= */
