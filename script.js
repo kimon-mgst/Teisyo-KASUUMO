@@ -542,31 +542,32 @@ function changeCostume(type) {
 
   const img = document.getElementById("modal-img");
 
-  // 現在の画像を完全に消す
+  // いったんフェードアウト
   img.classList.remove("show");
-
-  // 表示を完全に消してから画像を変更
   img.style.visibility = "hidden";
+
+  // 現在のonloadをリセット
+  img.onload = null;
 
   // 新しい画像を設定
   img.src = currentImages[type];
 
-  // 画像の読み込みが完了したら表示
-  if (img.complete) {
+  // 新しい画像が読み込まれたらフェードイン
+  const showImage = () => {
     img.style.visibility = "visible";
 
-    // 次の描画タイミングでフェードイン
+    // 強制的に1フレーム待ってからshowを付ける
     requestAnimationFrame(() => {
-      img.classList.add("show");
-    });
-  } else {
-    img.onload = () => {
-      img.style.visibility = "visible";
-
       requestAnimationFrame(() => {
         img.classList.add("show");
       });
-    };
+    });
+  };
+
+  if (img.complete && img.naturalWidth > 0) {
+    showImage();
+  } else {
+    img.onload = showImage;
   }
 }
 /* =========================
