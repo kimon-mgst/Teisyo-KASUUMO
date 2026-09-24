@@ -538,37 +538,39 @@ function openCharaByIndex(index) {
 ========================= */
 
 function changeCostume(type) {
+
   if (!currentImages[type]) return;
 
   const img = document.getElementById("modal-img");
+  const newSrc = currentImages[type];
 
-  // いったんフェードアウト
+  // 現在の画像をフェードアウト
   img.classList.remove("show");
   img.style.visibility = "hidden";
 
-  // 現在のonloadをリセット
-  img.onload = null;
+  // 新しい画像を読み込む
+  const newImage = new Image();
 
-  // 新しい画像を設定
-  img.src = currentImages[type];
+  newImage.onload = () => {
 
-  // 新しい画像が読み込まれたらフェードイン
-  const showImage = () => {
+    img.src = newSrc;
+
     img.style.visibility = "visible";
 
-    // 強制的に1フレーム待ってからshowを付ける
+    // フェードイン
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         img.classList.add("show");
       });
     });
+
   };
 
-  if (img.complete && img.naturalWidth > 0) {
-    showImage();
-  } else {
-    img.onload = showImage;
-  }
+  newImage.onerror = () => {
+    console.error("画像を読み込めませんでした:", newSrc);
+  };
+
+  newImage.src = newSrc;
 }
 /* =========================
 
