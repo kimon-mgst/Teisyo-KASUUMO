@@ -211,7 +211,7 @@ color: "#b1eeff",
 icon: "images/mio_icon.PNG",
 images: {
     uniform: "images/mio_seihuku.PNG",
-	casual: "images/seisakutyu.PNG"
+	casual: "images/motidukimio.png"
 	}
 },
 
