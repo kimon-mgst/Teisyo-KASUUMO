@@ -536,25 +536,7 @@ if (img.complete && img.naturalWidth > 0) {
     .classList.add("active");
 
 
-const showImage = () => {
 
-  void img.offsetWidth;
-
-  requestAnimationFrame(() => {
-    img.classList.add("show");
-  });
-
-};
-
-if (img.complete && img.naturalWidth > 0) {
-
-  showImage();
-
-} else {
-
-  img.onload = showImage;
-
-}
 }
 /* =========================
    COSTUME
