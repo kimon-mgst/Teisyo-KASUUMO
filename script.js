@@ -483,12 +483,14 @@ function openCharaByIndex(index) {
 
   const img = document.getElementById("modal-img");
 
-  // 古い画像を完全に消す
-  img.classList.remove("show");
-  img.style.visibility = "hidden";
+  // 古い画像をフェードアウト
+img.classList.remove("show");
 
-  // 制服画像をセット
-  img.src = c.images.uniform;
+// opacity:0 を確実に反映
+void img.offsetWidth;
+
+// 制服画像をセット
+img.src = c.images.uniform;
 
   // キャラクター情報を表示
   document.getElementById("modal-name").textContent = c.name;
@@ -515,23 +517,25 @@ function openCharaByIndex(index) {
     .classList.add("active");
 
 
-  // 画像の読み込みを明示的に待つ
-  if (img.complete && img.naturalWidth > 0) {
-  img.style.visibility = "visible";
+const showImage = () => {
+
+  void img.offsetWidth;
 
   requestAnimationFrame(() => {
     img.classList.add("show");
   });
+
+};
+
+if (img.complete && img.naturalWidth > 0) {
+
+  showImage();
+
 } else {
-  img.onload = () => {
-    img.style.visibility = "visible";
 
-    requestAnimationFrame(() => {
-      img.classList.add("show");
-    });
-  };
+  img.onload = showImage;
+
 }
-
 }
 /* =========================
    COSTUME
