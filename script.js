@@ -544,9 +544,12 @@ function changeCostume(type) {
   const img = document.getElementById("modal-img");
   const newSrc = currentImages[type];
 
-  // 現在の画像をフェードアウト
+  // いったんフェードアウト
   img.classList.remove("show");
-  img.style.visibility = "hidden";
+  img.style.visibility = "visible";
+
+  // ブラウザに「opacity: 0」を確実に描画させる
+  void img.offsetWidth;
 
   // 新しい画像を読み込む
   const newImage = new Image();
@@ -555,15 +558,13 @@ function changeCostume(type) {
 
     img.src = newSrc;
 
-    img.style.visibility = "visible";
+    // 新しい画像をセットした状態で一度確実に描画
+    void img.offsetWidth;
 
     // フェードイン
     requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        img.classList.add("show");
-      });
+      img.classList.add("show");
     });
-
   };
 
   newImage.onerror = () => {
@@ -572,6 +573,7 @@ function changeCostume(type) {
 
   newImage.src = newSrc;
 }
+
 /* =========================
 
    SWITCH
