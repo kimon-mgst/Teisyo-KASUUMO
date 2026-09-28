@@ -289,7 +289,7 @@ MODAL
   opacity:0;
   visibility:hidden;
 
-  transition:opacity .3s;
+  transition:opacity .5s;
 }
 
 .modal-img.show{
