@@ -287,7 +287,7 @@ MODAL
   margin:0 auto;
 
   opacity:0;
-  visibility:visible;
+  visibility:hidden;
 
   transition:opacity .5s ease;
 }
@@ -295,11 +295,6 @@ MODAL
 .modal-img.show{
   opacity:1;
 }
-
-.modal-img.show{
-  opacity:1;
-}
-
 .close{
   position:absolute;
   top:15px;
