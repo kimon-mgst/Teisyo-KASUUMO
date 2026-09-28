@@ -481,18 +481,35 @@ function openCharaByIndex(index) {
   currentIndex = index;
   currentImages = c.images;
 
-  const img = document.getElementById("modal-img");
+const img = document.getElementById("modal-img");
 
-  // 古い画像をフェードアウト
+// 古い画像を透明にする
 img.classList.remove("show");
 
-// opacity:0 を確実に反映
 void img.offsetWidth;
 
-img.onload = null;
-	
-// 制服画像をセット
+// 画像を設定
 img.src = c.images.uniform;
+
+const showImage = () => {
+
+  void img.offsetWidth;
+
+  requestAnimationFrame(() => {
+    img.classList.add("show");
+  });
+
+};
+
+if (img.complete && img.naturalWidth > 0) {
+
+  showImage();
+
+} else {
+
+  img.onload = showImage;
+
+}
 
   // キャラクター情報を表示
   document.getElementById("modal-name").textContent = c.name;
@@ -547,45 +564,41 @@ function changeCostume(type) {
 
   if (!currentImages[type]) return;
 
-  const img = document.getElementById("modal-img");
+  const oldImg = document.getElementById("modal-img");
 
-  // 古い画像をフェードアウト
-  img.classList.remove("show");
+  // 新しい画像要素を作る
+  const newImg = oldImg.cloneNode(false);
 
-  // フェードアウトを確実に反映
-  void img.offsetWidth;
+  newImg.id = "modal-img";
+  newImg.src = currentImages[type];
 
-  // 次の描画で画像を変更
-  requestAnimationFrame(() => {
+  // 最初は透明
+  newImg.classList.remove("show");
 
-    img.src = currentImages[type];
+  // 古い画像を新しい画像に置き換える
+  oldImg.replaceWith(newImg);
 
-    const showImage = () => {
+  // 読み込み完了後にフェードイン
+  const showImage = () => {
 
-      // 透明状態を確実に作る
-      img.classList.remove("show");
+    // ブラウザに「透明状態」を認識させる
+    void newImg.offsetWidth;
 
-      void img.offsetWidth;
+    requestAnimationFrame(() => {
+      newImg.classList.add("show");
+    });
 
-      // 次の描画でフェードイン
-      requestAnimationFrame(() => {
-        img.classList.add("show");
-      });
+  };
 
-    };
+  if (newImg.complete && newImg.naturalWidth > 0) {
 
-    // 画像がすでに読み込まれている場合
-    if (img.complete && img.naturalWidth > 0) {
+    showImage();
 
-      showImage();
+  } else {
 
-    } else {
+    newImg.onload = showImage;
 
-      img.onload = showImage;
-
-    }
-
-  });
+  }
 
 }
 
