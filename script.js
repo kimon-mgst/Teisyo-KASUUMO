@@ -546,37 +546,48 @@ function changeCostume(type) {
   if (!currentImages[type]) return;
 
   const img = document.getElementById("modal-img");
-  const newSrc = currentImages[type];
 
-  // 現在のフェードを解除
+  // 現在の画像をフェードアウト
   img.classList.remove("show");
 
-  // opacity 0 の状態を確実に反映
-  void img.offsetWidth;
+  // 一度フェードアウトを確実に反映させる
+  requestAnimationFrame(() => {
 
-  // 新しい画像を読み込む
-  const preload = new Image();
-
-  preload.onload = () => {
-
-    // 新しい画像をセット
-    img.src = newSrc;
-
-    // ブラウザに画像変更を反映
-    void img.offsetWidth;
-
-    // 次のフレームでフェードイン
     requestAnimationFrame(() => {
-      img.classList.add("show");
+
+      // 新しい画像を設定
+      img.src = currentImages[type];
+
+      // 新しい画像の読み込み完了を待つ
+      img.onload = () => {
+
+        // 一度確実に透明にする
+        img.classList.remove("show");
+
+        requestAnimationFrame(() => {
+
+          // フェードイン
+          img.classList.add("show");
+
+        });
+
+      };
+
+      // キャッシュ済み画像対策
+      if (img.complete && img.naturalWidth > 0) {
+
+        requestAnimationFrame(() => {
+
+          img.classList.add("show");
+
+        });
+
+      }
+
     });
 
-  };
+  });
 
-  preload.onerror = () => {
-    console.error("画像の読み込みに失敗しました:", newSrc);
-  };
-
-  preload.src = newSrc;
 }
 
 /* =========================
