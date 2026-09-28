@@ -474,44 +474,36 @@ function createDescriptionHTML(c) {
 /* =========================
    OPEN CHARACTER
 ========================= */
-
 function openCharaByIndex(index) {
+
   const c = currentList[index];
 
   currentIndex = index;
   currentImages = c.images;
 
-const img = document.getElementById("modal-img");
+  const img = document.getElementById("modal-img");
 
-// 古い画像を透明にする
-img.classList.remove("show");
-
-void img.offsetWidth;
-
-// 画像を設定
-img.src = c.images.uniform;
-
-const showImage = () => {
-
+  // フェードアウト
+  img.classList.remove("show");
   void img.offsetWidth;
 
-  requestAnimationFrame(() => {
-    img.classList.add("show");
-  });
+  // 画像読み込み完了時
+  img.onload = () => {
 
-};
+    void img.offsetWidth;
 
-if (img.complete && img.naturalWidth > 0) {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        img.classList.add("show");
+      });
+    });
 
-  showImage();
+  };
 
-} else {
+  // 制服画像
+  img.src = c.images.uniform;
 
-  img.onload = showImage;
-
-}
-
-  // キャラクター情報を表示
+  // キャラクター情報
   document.getElementById("modal-name").textContent = c.name;
 
   document.getElementById("modal-grade").textContent =
@@ -530,14 +522,25 @@ if (img.complete && img.naturalWidth > 0) {
       c.color
     );
 
-  // モーダルを開く
   document
     .getElementById("chara-modal")
     .classList.add("active");
 
+  // キャッシュ済み画像対策
+ if (img.complete && img.naturalWidth > 0) {
 
+  const loadHandler = img.onload;
+
+  if (loadHandler) {
+    loadHandler();
+  }
 
 }
+}
+/* =========================
+   COSTUME
+========================= */
+
 /* =========================
    COSTUME
 ========================= */
@@ -546,44 +549,39 @@ function changeCostume(type) {
 
   if (!currentImages[type]) return;
 
-  const oldImg = document.getElementById("modal-img");
+  const img = document.getElementById("modal-img");
 
-  // 新しい画像要素を作る
-  const newImg = oldImg.cloneNode(false);
+  // まずフェードアウト
+  img.classList.remove("show");
 
-  newImg.id = "modal-img";
-  newImg.src = currentImages[type];
+  // フェードアウトを確実に反映
+  void img.offsetWidth;
 
-  // 最初は透明
-  newImg.classList.remove("show");
+  // 新しい画像を読み込む
+  const newSrc = currentImages[type];
 
-  // 古い画像を新しい画像に置き換える
-  oldImg.replaceWith(newImg);
+  const newImage = new Image();
 
-  // 読み込み完了後にフェードイン
-  const showImage = () => {
+  newImage.onload = () => {
 
-    // ブラウザに「透明状態」を認識させる
-    void newImg.offsetWidth;
+    // 新画像をセット
+    img.src = newSrc;
 
+    // 透明状態を確実に反映
+    img.classList.remove("show");
+    void img.offsetWidth;
+
+    // 次のフレームでフェードイン
     requestAnimationFrame(() => {
-      newImg.classList.add("show");
+      requestAnimationFrame(() => {
+        img.classList.add("show");
+      });
     });
 
   };
 
-  if (newImg.complete && newImg.naturalWidth > 0) {
-
-    showImage();
-
-  } else {
-
-    newImg.onload = showImage;
-
-  }
-
+  newImage.src = newSrc;
 }
-
 /* =========================
 
    SWITCH
