@@ -489,6 +489,8 @@ img.classList.remove("show");
 // opacity:0 を確実に反映
 void img.offsetWidth;
 
+img.onload = null;
+	
 // 制服画像をセット
 img.src = c.images.uniform;
 
@@ -547,44 +549,41 @@ function changeCostume(type) {
 
   const img = document.getElementById("modal-img");
 
-  // 現在の画像をフェードアウト
+  // 古い画像をフェードアウト
   img.classList.remove("show");
 
-  // 一度フェードアウトを確実に反映させる
+  // フェードアウトを確実に反映
+  void img.offsetWidth;
+
+  // 次の描画で画像を変更
   requestAnimationFrame(() => {
 
-    requestAnimationFrame(() => {
+    img.src = currentImages[type];
 
-      // 新しい画像を設定
-      img.src = currentImages[type];
+    const showImage = () => {
 
-      // 新しい画像の読み込み完了を待つ
-      img.onload = () => {
+      // 透明状態を確実に作る
+      img.classList.remove("show");
 
-        // 一度確実に透明にする
-        img.classList.remove("show");
+      void img.offsetWidth;
 
-        requestAnimationFrame(() => {
+      // 次の描画でフェードイン
+      requestAnimationFrame(() => {
+        img.classList.add("show");
+      });
 
-          // フェードイン
-          img.classList.add("show");
+    };
 
-        });
+    // 画像がすでに読み込まれている場合
+    if (img.complete && img.naturalWidth > 0) {
 
-      };
+      showImage();
 
-      // キャッシュ済み画像対策
-      if (img.complete && img.naturalWidth > 0) {
+    } else {
 
-        requestAnimationFrame(() => {
+      img.onload = showImage;
 
-          img.classList.add("show");
-
-        });
-
-      }
-
-    });
+    }
 
   });
 
