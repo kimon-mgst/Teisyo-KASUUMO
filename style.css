@@ -282,14 +282,18 @@ MODAL
 
   width:auto;
   max-width:100%;
-  max-height:43vh;
+  max-height:40vh;
 
   margin:0 auto;
 
   opacity:0;
-  visibility:hidden;
+  visibility:visible;
 
-  transition:opacity .5s;
+  transition:opacity .5s ease;
+}
+
+.modal-img.show{
+  opacity:1;
 }
 
 .modal-img.show{
